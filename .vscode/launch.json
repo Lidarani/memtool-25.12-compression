@@ -1,0 +1,83 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": "${command:pickArgs}",
+            "justMyCode": false
+        },
+        {
+            "name": "Codegen",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/memtool_entry.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "-t", "codegen",
+                "-d", "${env:ProgramData}\\NXP\\mcu_data_25.12\\processors\\MIMX9596xxxxQ\\ksdk2_0\\mem_validation\\ddrc",
+                "-m", "lpddr4x",
+                "-f", "2024.09-SP2",
+                "${env:TEMP}\\mem_validation\\connect.json",
+                "${env:TEMP}\\mem_validation\\ddrc_config_in.json",
+                "${env:TEMP}\\mem_validation\\ddrc_config.json",
+                "${env:TEMP}\\mem_validation\\phy.json",
+                "-o", "${workspaceFolder}\\output"
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "Run on board - Uncompressed",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/memtool_entry.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "-t", "runtest",
+                "-d", "${env:ProgramData}\\NXP\\mcu_data_25.12\\processors\\MIMX9596xxxxQ\\ksdk2_0\\mem_validation\\ddrc",
+                "-l", "DEBUG",
+                "-m", "lpddr4x",
+                "-f", "2024.09-SP2",
+                "${env:TEMP}\\mem_validation\\connect.json",
+                "${env:TEMP}\\mem_validation\\test.json",
+                "${env:TEMP}\\mem_validation\\ddrc_config.json",
+                "${env:TEMP}\\mem_validation\\ddrc_config_in.json",
+                "${env:TEMP}\\mem_validation\\phy.json",
+                "${workspaceFolder}\\output\\phy_config_final.json",
+            ],
+            "justMyCode": false
+        },
+                {
+            "name": "Run on board - compressed",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/memtool_entry.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "-t", "runtest",
+                "-d", "${env:ProgramData}\\NXP\\mcu_data_25.12\\processors\\MIMX9596xxxxQ\\ksdk2_0\\mem_validation\\ddrc",
+                "-l", "DEBUG",
+                "-m", "lpddr4x",
+                "-f", "2024.09-SP2",
+                "-x",
+                "${env:TEMP}\\mem_validation\\connect.json",
+                "${env:TEMP}\\mem_validation\\test.json",
+                "${env:TEMP}\\mem_validation\\ddrc_config.json",
+                "${env:TEMP}\\mem_validation\\ddrc_config_in.json",
+                "${env:TEMP}\\mem_validation\\phy.json",
+                "${workspaceFolder}\\output\\phy_config_final.json",
+            ],
+            "justMyCode": false
+        },
+    ]
+}
