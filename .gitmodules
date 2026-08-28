@@ -1,0 +1,3 @@
+[submodule "imx-oei"]
+	path = imx-oei
+	url = https://github.com/Lidarani/imx-oei.git
